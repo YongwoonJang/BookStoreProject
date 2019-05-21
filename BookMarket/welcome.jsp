@@ -10,41 +10,42 @@
 	<%@ include file="menu.jsp" %>
 	
 	
-	<%! String greeting = "서점에 오신 것을 환영합니다.";
-	String tagline = "Welcome to Web Market!";%>
+	<% 
+		String greeting = "소통 공간";
+		String tagline = "지난주 저는  이랬습니다.";
+	%>
+	
 	<div class = "jumbotron">
 		<div class = "container">
-			<h1 class = "display-3">
+			<h1 class = "display-3 text-center">
 				<%= greeting %>
 			</h1>
 		</div>
 	</div>
-	<div class ="container">
-		<div class ="text-center">
+	<div class ="container-fluid">
+		<div align="middle">
 			<h3>
 				<%= tagline %>
-			</h3>
-			<%
-				Date day = new java.util.Date();
-				response.setIntHeader("Refresh", 5);
-				String am_pm;
-				int hour = day.getDate();
-				int minute = day.getMinutes();
-				int second = day.getSeconds();
-				if (hour / 12 == 0){
-					am_pm = "AM";
-				}else{
-					am_pm = "PM";
-					hour = hour - 12;
-				}
-				String CT = hour + ":" + minute + ":" + second + " " + am_pm;
-				out.println("현재 접속 시각: "+ CT + "\n");
-			%>
+			</h3>		
+		</div>
+		<div style="position:relative;margin:auto;margin-top:30px;" align="middle">
+			<iframe width="800" 
+				height="500" 
+				src="https://www.youtube.com/embed/nbk71vDbSFA" 
+				frameborder="0" 
+				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+				allowfullscreen>
+			</iframe>
+			<div style="width:800px;" align="right">
+				<%@include file="footer.jsp" %>	
+			</div>
 		</div>
 	</div>
 	
-	<%@include file="footer.jsp" %>
-	
-	
+		
 </body>
 </html>
+
+
+
+
