@@ -26,8 +26,8 @@
 					<li class="nav-item"><a class="nav-link" href="<c:url value="#"/>">회원 목록</a></li>
 				</c:when>
 			</c:choose>
-				<li class="nav-item"><a class="nav-link" href="/BookMarket/books.jsp">공유되고 있는 것들</a></li>
-				<li class="nav-item"><a class="nav-link" href="/BookMarket/addBook.jsp">공유하고 싶은 것들 </a></li>
+				<!-- <li class="nav-item"><a class="nav-link" href="/BookMarket/books.jsp">공유되고 있는 것들</a></li> -->
+				<!-- <li class="nav-item"><a class="nav-link" href="/BookMarket/addBook.jsp">공유하고 싶은 것들 </a></li> -->
 				<!-- <li class="nav-item"><a class="nav-link" href="/BookMarket/editBook.jsp?edit=update">상품 수정</a></li> -->
 				<!-- <li class="nav-item"><a class="nav-link" href="/BookMarket/editBook.jsp?edit=delete">상품 삭제</a></li> -->
 				<li class="nav-item"><a class="nav-link" href="<c:url value="/GalleryBoardListAction.do?pageNum=1"/>">글과 사진으로  소통하기</a></li>

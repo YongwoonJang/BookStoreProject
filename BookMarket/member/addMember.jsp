@@ -42,7 +42,7 @@ function resetIdInputElement(){
 	
 	<sql:setDataSource 
 		var="dataSource"
-		url="jdbc:mysql://localhost:3306/bookmarketdb"
+		url="jdbc:mysql://localhost:3306/BookMarketDB"
 		driver="com.mysql.jdbc.Driver"
 		user="root"
 		password="new1234!"

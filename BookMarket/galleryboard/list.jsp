@@ -13,10 +13,10 @@
 	<jsp:include page="../menu.jsp"/>
 	<%
 		
-		if(session.getAttribute("sessionId")==null){
+		/*if(session.getAttribute("sessionId")==null){
 			   response.sendRedirect("/BookMarket/member/loginMember.jsp");
 		}
-	
+		*/
 		ArrayList<GalleryBoardDTO> data = (ArrayList<GalleryBoardDTO>)request.getAttribute("data");//data receive.
 		 
 	%>

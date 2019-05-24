@@ -2,9 +2,9 @@
 <%@ page import="java.util.Date" %>
 <html>
 <head>
-<link rel = "stylesheet"
-	href ="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<title>Welcome</title>
+<link rel = "stylesheet" href ="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel = "stylesheet" href ="/BookMarket/resources/css/menucss.css">
+<title>함께 공유해요</title>
 </head>
 <body>
 	<%@ include file="menu.jsp" %>
@@ -12,7 +12,7 @@
 	
 	<% 
 		String greeting = "소통 공간";
-		String tagline = "지난주 저는  이랬습니다.";
+		String tagline = "지난주 저는 이렇게 지냈습니다.";
 	%>
 	
 	<div class = "jumbotron">

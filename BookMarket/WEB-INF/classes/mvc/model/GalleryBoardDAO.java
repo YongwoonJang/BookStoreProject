@@ -97,9 +97,11 @@ public class GalleryBoardDAO {
 		Connection conn = null;
 		PreparedStatement ptmt = null;
 		ResultSet rs = null;
+
+		id = "장용운";
 		
 		try {
-			System.out.println("GalleryBoardDAO line 102 : "+id);
+			System.out.println("WEB-INF.classes.mvc.model.GalleryBoardDAO line 102 id : "+id);
 			
 			sql = "select name from member where id = ?";
 			conn = DBConnection.getConnection();
@@ -109,9 +111,9 @@ public class GalleryBoardDAO {
 			rs = ptmt.executeQuery();
 			
 			rs.next();
-			
+		        System.out.printf("WEB-INF.classes.mvc.model.GalleryBoardDAO line 114");	
 			name = rs.getString("name");
-			
+			name = "장용운";
 		}catch(Exception e) {
 			e.printStackTrace();
 			

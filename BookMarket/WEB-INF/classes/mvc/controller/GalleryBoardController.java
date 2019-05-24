@@ -36,8 +36,13 @@ public class GalleryBoardController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
 		
-		System.out.println("Controller 40 line : something is happened");
-		
+		System.out.println("mvc.GalleryBoardController.java 39 lines : "+command);
+		int semiColon = command.indexOf(";");
+		if(semiColon > 0){
+			command = command.substring(0,semiColon);
+		}
+		System.out.println("mvc.GalleryBoardController.java 43 lines : "+command);		
+	
 		if(command.equals("/GalleryBoardListAction.do")) {
 			requestGalleryBoardList(request);
 			request.setAttribute("pageNum", "1");
@@ -166,8 +171,11 @@ public class GalleryBoardController extends HttpServlet {
 		dto.setSubject(multi.getParameter("title"));
 		dto.setId(multi.getParameter("id"));
 		dto.setFilename(fileName);
-		dto.setFilesize(file.length());
-		
+		if(file != null){
+			dto.setFilesize(file.length());
+		}else{
+			dto.setFilesize(0);
+		}
 		
 		try {
 			GalleryBoardDAO.getInstance().insertGalleryBoard(dto);
@@ -197,14 +205,15 @@ public class GalleryBoardController extends HttpServlet {
 	}
 	
 	public void requestGalleryBoardList(HttpServletRequest request){
-		String pageNum = request.getParameter("pageNum");
+		String pageNum = (String)request.getAttribute("pageNum");
+		if(pageNum == null){
+			pageNum = request.getParameter("pageNum");
+		}
 		String listCount = Integer.toString(LISTCOUNT);
 		String items = request.getParameter("items");
 		String text = request.getParameter("text");
 		ArrayList<GalleryBoardDTO> data = null;
-		
-		pageNum = "1";
-		
+			
 		try {
 			data = GalleryBoardDAO.getInstance().getGalleryList(Integer.parseInt(pageNum), Integer.parseInt(listCount), items, text);
 		
