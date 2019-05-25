@@ -58,3 +58,31 @@ function addMemberValidation(){
 	document.newMember.submit();
 	
 }
+
+function addArticleValidation(){
+	var title = document.getElementsByName("title");
+	var content = document.getElementsByName("content");
+	var filename = document.getElementsByName("filename");
+
+	if(title[0].value.length == 0){
+		alert("제목을 입력 해주세요.");
+		title[0].select();
+		title[0].focus();
+		return;
+	}
+	if(content[0].value.length == 0){
+		alert("내용을 입력 해주세요.");
+		content[0].select();
+		content[0].focus();
+		return;
+	}
+	if(filename[0].value.length == 0){
+		alert("파일을 업로드 해주세요.");
+		filename[0].select();
+		filename[0].focus();
+		return;
+	}	
+	
+	document.newArticle.submit();
+
+}

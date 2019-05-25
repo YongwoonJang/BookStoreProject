@@ -6,7 +6,7 @@
 <html>
 <head>
 	<link rel = "stylesheet" href ="<c:url value="./resources/css/bootstrap.min.css"/>">
-	<title>Detail View</title>
+	<title>자세히 보기</title>
 	<script type="text/javascript">
 		var clicked = 0;
 		function edit(){
@@ -32,40 +32,38 @@
 		GalleryBoardDTO data = (GalleryBoardDTO)request.getAttribute("data");//data receive.
 		String fileFullPath = "./resources/images/"+data.getFilename();
 	%>
-	<div class="container">
-		<div class="col-md-offset-5 justify-content-center">
+	<div class="container-fluid" style="margin-top:10px;">
+		<div style="position:relative;margin:auto;" align="middle">	
 			<div id="view" style="display:block">
 				<table class="table">
-						<thead class="justify-content-center">
-							<tr>
-								<figure class="figure">
-										<img src="<c:url value="<%=fileFullPath%>"/>" class="figure-img img-fluid rounded" alt="이미지가 없습니다.">
-			  							<figcaption class="figure-caption"><%=data.getSubject()%></figcaption>
-								</figure>
-							</tr>
-							<tr>
-								<th scope="col">제목</th>
-								<th scope="col"><%=data.getSubject()%></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td scope="col">내용</td>
-								<td scope="col"><%=data.getContent().replace("\n","<br>")%></td>
-							</tr>
-							<tr>
-								<td scope="col">글쓴이</td>
-								<td scope="col"><%=data.getName()%></td>
-							</tr>
-							<tr>
-								<td scope="col">작성시간</td>
-								<td scope="col"><%=data.getRegist_day()%></td>
-							</tr>
-							<tr>
-								<td scope="col">조회수</td>
-								<td scope="col"><%=data.getHit()%></td>
-							</tr>
-						</tbody>
+					<tbody>
+						<tr>
+							<figure class="figure">
+									<img src="<c:url value="<%=fileFullPath%>"/>" class="figure-img img-fluid rounded" alt="이미지가 없습니다.">
+									<figcaption class="figure-caption"><%=data.getSubject()%></figcaption>
+							</figure>
+						</tr>
+						<tr>
+							<td scope="col" class="text-center font-weight-bold">제목</th>
+							<td scope="col"><%=data.getSubject()%></th>
+						</tr>
+						<tr>
+							<td scope="col" class="text-center font-weight-bold">내용</td>
+							<td scope="col"><%=data.getContent().replace("\n","<br>")%></td>
+						</tr>
+						<tr>
+						<!--	<td scope="col" class="text-center font-weight-bold">글쓴이</td>
+							<td scope="col"><%=data.getName()%></td>-->
+						</tr>
+						<tr>
+							<td scope="col" class="text-center font-weight-bold">작성일</td>
+							<td scope="col"><%=data.getRegist_day()%></td>
+						</tr>
+						<tr>
+							<td scope="col" class="text-center font-weight-bold">조회수</td>
+							<td scope="col"><%=data.getHit()%></td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
 			<div id="edit" style="display:none">
@@ -95,10 +93,10 @@
 									<td scope="col">내용</td>
 									<td scope="col"><textarea rows="10" cols="100" name="content"><%=data.getContent()%></textarea></td>
 								</tr>
-								<tr>
+							<!--	<tr>
 									<td scope="col">글쓴이</td>
-									<td scope="col"><%=data.getName()%><input name="name" type="hidden" value="<%=data.getName()%>"/></td>
-								</tr>
+									<td scope="col"><%=data.getName()%><input name="name" type="hidden" value="<%=data.getName()%>"/></td> 
+								</tr>-->
 								<tr>
 									<td scope="col">작성 시간</td>
 									<td scope="col"><%=data.getRegist_day()%><input name="registDay" type="hidden" value="<%=data.getRegist_day()%>"/></td>

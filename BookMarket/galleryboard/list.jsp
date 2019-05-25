@@ -22,15 +22,19 @@
 	%>
 		<div class = "jumbotron">
 			<div class = "container">
-				<h1 class = "display-3">
-					갤러리 
+				<h1 class = "display-3 text-center">
+					Space 
 				</h1>
 			</div>
 		</div>
 		
-		<div class="container">
-			<div class="col-md-offset-4 justify-content-center">
-				<p>
+		<div class="container-fluid">
+			<div style="position:relative;margin:auto;" align="middle">
+				<form action="<c:url value="/GalleryBoardWriteForm.do"/>" method="post">
+					<input type="hidden" name="id" value="<%=session.getAttribute("sessionId")%>"/>
+					<button type="submit" class="btn btn-primary">글 추가하기</button>
+				</form>	
+				<br/>
 				<table class="table">
 					<tbody>
 					<%
@@ -76,10 +80,7 @@
 					%>	
 					</tbody>
 				</table>
-				<form action="<c:url value="/GalleryBoardWriteForm.do"/>" method="post">
-					<input type="hidden" name="id" value="<%=session.getAttribute("sessionId")%>"/>
-					<button type="submit" class="btn btn-primary">글 추가하기</button>
-				</form>			
+						
 			</div>
 		</div>
 

@@ -29,9 +29,14 @@ public class GalleryBoardController extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-		
+		//request.setCharacterEncoding("utf-8");
+		//response.setContentType("text/html; charset=utf-8");
+
+		request.setCharacterEncoding("euc-kr");
+		response.setContentType("text/html; charset=euc-kr");
+
+                System.out.println("GalleryBoardController.java 35 lines : "+request.getParameter("title"));	        
+	
 		String RequestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
@@ -129,9 +134,14 @@ public class GalleryBoardController extends HttpServlet {
 	}
 	
 	public void requestGalleryBoardView(HttpServletRequest request) throws IOException {
+		int page = 1;
+		System.out.println("GalleryBoardController 138 lines error name check num value is "+request.getParameter("num"));
 		int num = Integer.parseInt(request.getParameter("num"));
-		int page = Integer.parseInt(request.getParameter("pageNum"));
-		
+		String pageNum = request.getParameter("pageNum");
+		if(pageNum != null){
+			page = Integer.parseInt(request.getParameter("pageNum"));
+		}	
+
 		GalleryBoardDTO data = GalleryBoardDAO.getInstance().getGalleryBoardByNum(num, page);
 		request.setAttribute("data", data);
 		request.setAttribute("pageNum", page);
@@ -159,7 +169,9 @@ public class GalleryBoardController extends HttpServlet {
 		String fname = (String) files.nextElement();
 		String fileName = multi.getFilesystemName(fname);
 		File file = multi.getFile(fname);
-		
+
+		System.out.println("GalleryBoardController 165 lines content "+multi.getParameter("content"));	
+	
 		//And save to DTO
 		GalleryBoardDTO dto = new GalleryBoardDTO();
 		dto.setContent(multi.getParameter("content"));	
@@ -208,6 +220,9 @@ public class GalleryBoardController extends HttpServlet {
 		String pageNum = (String)request.getAttribute("pageNum");
 		if(pageNum == null){
 			pageNum = request.getParameter("pageNum");
+		}
+		if(pageNum == null){
+			pageNum = "1";
 		}
 		String listCount = Integer.toString(LISTCOUNT);
 		String items = request.getParameter("items");

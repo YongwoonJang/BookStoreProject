@@ -11,7 +11,7 @@
 	
 	
 	<% 
-		String greeting = "소통 공간";
+		String greeting = "공간";
 		String tagline = "지난주 저는 이렇게 지냈습니다.";
 	%>
 	

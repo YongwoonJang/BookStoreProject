@@ -112,8 +112,14 @@ public class GalleryBoardDAO {
 			
 			rs.next();
 		        System.out.printf("WEB-INF.classes.mvc.model.GalleryBoardDAO line 114");	
-			name = rs.getString("name");
-			name = "장용운";
+			if(rs != null){
+				name = rs.getString("name");
+
+			}else{
+				name = "장용운";
+
+			}
+
 		}catch(Exception e) {
 			e.printStackTrace();
 			
