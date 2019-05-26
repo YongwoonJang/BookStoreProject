@@ -12,6 +12,7 @@
 			<url-pattern>/addBook.jsp</url-pattern>
 			<url-pattern>/editbook.jsp</url-pattern>
 			<url-pattern>/memberList.jsp</url-pattern>
+			<url-pattern>/GalleryBoardDeleteAction.do</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<description>권한 소유자명</description>

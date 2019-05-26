@@ -118,7 +118,7 @@ public class GalleryBoardController extends HttpServlet {
 		dto.setIp(request.getRemoteAddr()); 
 		dto.setName(multi.getParameter("name"));
 		dto.setRegist_day(multi.getParameter("registDay"));
-		dto.setSubject(multi.getParameter("subject"));
+		dto.setSubject(multi.getParameter("title"));
 		dto.setId(multi.getParameter("id"));
 		dto.setFilename(fileName);
 		dto.setFilesize(file.length());
