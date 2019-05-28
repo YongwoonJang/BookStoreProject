@@ -285,21 +285,27 @@ public class GalleryBoardDAO {
 		try {
 					
 			conn = DBConnection.getConnection();
-			ptmt = conn.prepareStatement("update galleryboard set "
+			/*ptmt = conn.prepareStatement("update galleryboard set "
 					+ "id = ?, name = ?, subject = ?, "
 					+ "content = ?, regist_day = ?, ip = ?,"
 					+ "filename = ?, filesize= ? "
 					+ "where num = ?");
+			*/
+			ptmt = conn.prepareStatement("update galleryboard set "
+					+ "subject = ?, "
+					+ "content = ?, regist_day = ?, ip = ?,"
+					+ "filename = ?, filesize= ? "
+					+ "where num = ?");
 		
-			ptmt.setString(1, data.getId());
-			ptmt.setString(2, data.getName());
-			ptmt.setString(3, data.getSubject());
-			ptmt.setString(4, data.getContent());
-			ptmt.setString(5, data.getRegist_day());
-			ptmt.setString(6, data.getIp());
-			ptmt.setString(7, data.getFilename());
-			ptmt.setLong(8, data.getFilesize());
-			ptmt.setInt(9, data.getNum());
+			//ptmt.setString(1, data.getId());
+			//ptmt.setString(2, data.getName());
+			ptmt.setString(1, data.getSubject());
+			ptmt.setString(2, data.getContent());
+			ptmt.setString(3, data.getRegist_day());
+			ptmt.setString(4, data.getIp());
+			ptmt.setString(5, data.getFilename());
+			ptmt.setLong(6, data.getFilesize());
+			ptmt.setInt(7, data.getNum());
 			
 			System.out.println("the real query is "+ptmt+" /n");
 			ptmt.executeUpdate();
