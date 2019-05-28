@@ -29,11 +29,11 @@ public class GalleryBoardController extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
-		//request.setCharacterEncoding("utf-8");
-		//response.setContentType("text/html; charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
 
-		request.setCharacterEncoding("euc-kr");
-		response.setContentType("text/html; charset=euc-kr");
+		//request.setCharacterEncoding("euc-kr");
+		//response.setContentType("text/html; charset=euc-kr");
 
                 System.out.println("GalleryBoardController.java 35 lines : "+request.getParameter("title"));	        
 	
@@ -86,6 +86,7 @@ public class GalleryBoardController extends HttpServlet {
 	
 	public void requestGalleryBoardUpdate(HttpServletRequest request) {
 		long time = System.currentTimeMillis();
+		long fileSize = 0;
 		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
 		
 		String filename="";
@@ -93,7 +94,8 @@ public class GalleryBoardController extends HttpServlet {
 		String encType = "utf-8";
 		int maxSize = 5 * 1024 * 1024;
 		MultipartRequest multi = null;
-		
+	
+		System.out.println("GalleryBoardController 97 line before MultipartRequest");	
 		//file creationg and uploading
 		try {
 			multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
@@ -111,6 +113,15 @@ public class GalleryBoardController extends HttpServlet {
 		
 		System.out.println("GalleryBoardController 102 line filename: "+fileName);
 		
+		if(fileName == null){
+			fileName = multi.getParameter("originfilename");
+			fileSize = Long.parseLong(multi.getParameter("originfilesize"));
+
+		}else{
+			fileSize = file.length();
+
+		}
+		
 		//And save to DTO
 		GalleryBoardDTO dto = new GalleryBoardDTO();
 		dto.setContent(multi.getParameter("content"));	
@@ -121,8 +132,12 @@ public class GalleryBoardController extends HttpServlet {
 		dto.setSubject(multi.getParameter("title"));
 		dto.setId(multi.getParameter("id"));
 		dto.setFilename(fileName);
-		dto.setFilesize(file.length());
+		dto.setFilesize(fileSize);
 
+		System.out.println("GalleryBoardController 137 line Null pointer exception is solved");
+		System.out.println("File name is "+fileName);
+		System.out.println("File size is "+fileSize);
+		
 		GalleryBoardDAO.getInstance().updateGalleryBoard(dto);
 		
 	}
@@ -138,7 +153,8 @@ public class GalleryBoardController extends HttpServlet {
 		System.out.println("GalleryBoardController 138 lines error name check num value is "+request.getParameter("num"));
 		int num = Integer.parseInt(request.getParameter("num"));
 		String pageNum = request.getParameter("pageNum");
-		if(pageNum != null){
+		System.out.println("GalleryBoardController 156 lines pageNum is "+!pageNum.equals("null"));
+		if(!pageNum.equals("null") && pageNum.length() > 0){
 			page = Integer.parseInt(request.getParameter("pageNum"));
 		}	
 

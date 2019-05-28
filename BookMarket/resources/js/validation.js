@@ -76,13 +76,13 @@ function addArticleValidation(){
 		content[0].focus();
 		return;
 	}
-	if(filename[0].value.length == 0){
+/*	if(filename[0].value.length == 0){
 		alert("파일을 업로드 해주세요.");
 		filename[0].select();
 		filename[0].focus();
 		return;
 	}	
-	
+*/	
 	document.newArticle.submit();
 
 }

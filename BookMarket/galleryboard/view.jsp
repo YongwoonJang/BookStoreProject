@@ -70,7 +70,7 @@
 				</table>
 			</div>
 			<div id="edit" style="display:none">
-				<form method="post" action="<c:url value="/GalleryBoardUpdateAction.do"/>" enctype="multipart/form-data">
+				<form method="post" name="newArticle" action="<c:url value="/GalleryBoardUpdateAction.do"/>" enctype="multipart/form-data">
 						<input name="num" type="hidden" value="<%=request.getParameter("num")%>"/>
 						<input name="id" type="hidden" value="<%=session.getAttribute("sessionId")%>"/>
 						<input name="pageNum" type="hidden" value="<%=request.getParameter("pageNum")%>"/>
@@ -84,7 +84,7 @@
 								</tr>
 								<tr>
 									<td scope="col" class="text-center font-weight-bold">파일 올리기</td>
-									<td><input type="file" name="filename"/></td>
+									<td><input type="file" name="filename"/><input type="hidden" name="originfilename" value="<%=data.getFilename()%>"/><input type="hidden" name="originfilesize" value="<%=data.getFilesize()%>"/></td>
 								</tr>
 								<tr>
 									<td scope="col" class="text-center font-weight-bold">제목</td>
