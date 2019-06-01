@@ -4,7 +4,10 @@
 <head>
 <link rel = "stylesheet" href ="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel = "stylesheet" href ="/BookMarket/resources/css/menucss.css">
-<title>함께 공유해요</title>
+<link rel = "stylesheet" href ="/BookMarket/resources/css/welcomeCss.css">
+<link rel = "stylesheet" media="(max-width:900px)" href="/BookMarket/resources/css/responsiveCss.css">
+<meta name = "viewport" content ="width=device-width, initial-scale=1">
+<title>함께 하는 공간</title>
 </head>
 <body>
 	<%@ include file="menu.jsp" %>
@@ -24,19 +27,19 @@
 	</div>
 	<div class ="container-fluid">
 		<div align="middle">
-			<h3>
+			<h3 class="mainText">
 				<%= tagline %>
 			</h3>		
 		</div>
-		<div style="position:relative;margin:auto;margin-top:30px;" align="middle">
-			<iframe width="800" 
-				height="500" 
-				src="https://www.youtube.com/embed/ZZyQfPUss6g"
-				frameborder="0" 
-				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-				allowfullscreen>
-			</iframe>
-			<div style="width:800px;" align="right">
+		<div class="youTubeIframe" align="middle">
+			<div style="position:relative">
+				<iframe src="https://www.youtube.com/embed/nbk71vDbSFA"
+					frameborder="0" 
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+					allowfullscreen>
+				</iframe>
+			</div>
+			<div style="position:relative;height:20%;" align="right">
 				<%@include file="footer.jsp" %>	
 			</div>
 		</div>

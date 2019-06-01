@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 <script type="text/javascript" src="/BookMarket/resources/js/validation.js"></script> 
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>글 작성 하기</title>
 </head>
 <body>
@@ -29,7 +30,7 @@
 	</div>
 	
 	<div class="container-fulid">
-		<div style="position:relative;margin:auto;" align="middle">
+		<div style="position:relative;margin:auto;width:90%;" align="middle">
 			<p>
 				<form action="<c:url value="/GalleryBoardWriteAction.do"/>" method="post" enctype="multipart/form-data" accept-charset="utf-8" name="newArticle">
 					<table class="table">

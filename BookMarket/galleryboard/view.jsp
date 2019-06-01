@@ -6,6 +6,8 @@
 <html>
 <head>
 	<link rel = "stylesheet" href ="<c:url value="./resources/css/bootstrap.min.css"/>">
+	<link rel = "stylesheet" href="/BookMarket/resources/css/viewcss.css">
+	<link rel = "stylesheet" media="(max-width:375px)" href="/BookMarket/resources/css/responsiveViewCss.css">
 	<title>자세히 보기</title>
 	<script type="text/javascript">
 		var clicked = 0;
@@ -27,6 +29,7 @@
 	
 	</script>
 	<script type="text/javascript" src="/BookMarket/resources/js/validation.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<jsp:include page="/menu.jsp"/>
@@ -36,15 +39,17 @@
 		String fileFullPath = "./resources/images/"+data.getFilename();
 	%>
 	<div class="container-fluid" style="margin-top:10px;">
-		<div style="position:relative;margin:auto;" align="middle">	
+		<div id="viewdetail" style="position:relative;margin:auto;" align="middle">	
 			<div id="view" style="display:block">
 				<table class="table">
 					<tbody>
 						<tr>
-							<figure class="figure">
+							<div>
+								<figure class="figure">
 									<img src="<c:url value="<%=fileFullPath%>"/>" class="figure-img img-fluid rounded" alt="이미지가 없습니다.">
 									<figcaption class="figure-caption"><%=data.getSubject()%></figcaption>
-							</figure>
+								</figure>
+							</div>
 						</tr>
 						<tr>
 							<td scope="col" class="text-center font-weight-bold">제목</th>
@@ -77,14 +82,16 @@
 						<table class="table">
 							<tbody>	
 								<tr>
-									<figure class="figure">
-										<img src="<c:url value="<%=fileFullPath%>"/>" class="figure-img img-fluid rounded" alt="이미지가 없습니다.">
-			  							<figcaption class="figure-caption"><%=data.getSubject()%></figcaption>
-									</figure>
+									<div>
+										<figure class="figure">
+											<img src="<c:url value="<%=fileFullPath%>"/>" class="figure-img img-fluid rounded" alt="이미지가 없습니다.">
+			  								<figcaption class="figure-caption"><%=data.getSubject()%></figcaption>
+										</figure>
+									</div>
 								</tr>
 								<tr>
 									<td scope="col" class="text-center font-weight-bold">파일 올리기</td>
-									<td><input type="file" name="filename"/><input type="hidden" name="originfilename" value="<%=data.getFilename()%>"/><input type="hidden" name="originfilesize" value="<%=data.getFilesize()%>"/></td>
+									<td><input type="file" name="filename" style="width:100%"/><input type="hidden" name="originfilename" value="<%=data.getFilename()%>"/><input type="hidden" name="originfilesize" value="<%=data.getFilesize()%>"/></td>
 								</tr>
 								<tr>
 									<td scope="col" class="text-center font-weight-bold">제목</td>
@@ -107,7 +114,7 @@
 						</table>
 						<input type="hidden" name="id" value="<%=session.getAttribute("sessionId")%>"/>
 						<button type="button" class="btn btn-primary" onClick="addArticleValidation()">수정 완료</button>
-					</form>
+				</form>
 			</div>
 			<div id="viewbutton" style="display:block;">
 				<a href="<c:url value='GalleryBoardListAction.do?pageNum=1'/>"><button type="submit" class="btn btn-primary">이전 페이지로 돌아가기</button></a>
