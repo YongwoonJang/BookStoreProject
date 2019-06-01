@@ -18,11 +18,9 @@
 		String tagline = "지난주 저는 이렇게 지냈습니다.";
 	%>
 	
-	<div class = "jumbotron">
-		<div class = "container">
-			<h1 class = "display-3 text-center">
-				<%= greeting %>
-			</h1>
+	<div class = "container-fluid" style="padding-left:0px;padding-right:0px;" >
+		<div class = "jumbotron text-center greeting" style="padding-top:0px;padding-bottom:0px;" >
+			<p><%= greeting %>
 		</div>
 	</div>
 	<div class ="container-fluid">
