@@ -21,14 +21,12 @@
 		ArrayList<GalleryBoardDTO> data = (ArrayList<GalleryBoardDTO>)request.getAttribute("data");//data receive.
 		 
 	%>
-		<div class = "jumbotron">
-			<div class = "container">
-				<h1 class = "display-3 text-center">
-					Space 
-				</h1>
+		<div class = "container-fluid" style="padding-left:0px;padding-right:0px;" >
+			<div class = "jumbotron text-center greeting" style="padding-top:0px;padding-bottom:0px;" >
+				Space
 			</div>
 		</div>
-		
+
 		<div class="container-fluid">
 			<div style="position:relative;margin:auto;" align="middle">
 				<form action="<c:url value="/GalleryBoardWriteForm.do"/>" method="post">
