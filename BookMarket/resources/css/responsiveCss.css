@@ -8,8 +8,11 @@
 	position:relative;
 	margin:auto;
 	width:90%;
-	height:100%;
+	height:90%;
 
+}
+.nav{
+	display:none;
 }
 .navigator{
 	margin: 0;
@@ -23,10 +26,10 @@
 .prev,
 .next {
   position: absolute;
-  top: 66.8%; right: 0;
+  top: 0; right: 0;
   width: 10%; height: 100%;
   line-height: 200px;
-  margin: -100px 0 0 0;
+  margin: 0 0 0 0;
   text-decoration: none;
   text-align: center;
   background: #000000;

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="java.util.Date" %>
+<%@ page import="java.util.Date,java.lang.reflect.Array" %>
 <html>
 <head>
 <link rel = "stylesheet" href ="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -16,6 +16,14 @@
 	<% 
 		String greeting = "공간";
 		String tagline = "My week";
+		String[] youtubeAddress = new String[5];
+
+		Array.set(youtubeAddress, 0, "https://www.youtube.com/embed/dC8W84c4Exk");
+		Array.set(youtubeAddress, 1, "https://www.youtube.com/embed/lLuk2OyFLRo");	
+		Array.set(youtubeAddress, 2, "https://www.youtube.com/embed/Ccx9b_FHHK0");
+		Array.set(youtubeAddress, 3, "https://www.youtube.com/embed/nbk71vDbSFA");
+		Array.set(youtubeAddress, 4, "https://www.youtube.com/embed/foRUbMTB0CY");
+		//sorting
 	%>
 	
 	<div class = "container-fluid" style="padding-left:0px;padding-right:0px;" >
@@ -27,60 +35,41 @@
 		<div class="youTubeIframe" align="middle">
 			<div style="position:relative">
 				<ul class="slider">	
-					<li>
-						<input type="radio" id="slide_1" name="slideRadioGroup" class="state" checked="checked">
-						<div class="wrap">
-							<div class="slide">	
-								<iframe 
-									class="inneriframe"
-									src="https://www.youtube.com/embed/Ccx9b_FHHK0"
-									frameborder="0" 
-									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-									allowfullscreen>
-								</iframe>
+					<% 
+						int youtubeAddressLength = youtubeAddress.length;
+						for(int i = 0; i<youtubeAddressLength; i++){
+							int older = i+1;
+							int newer = i-1;
+							if(older >= youtubeAddressLength){
+								older = 0;
+							}
+							if(newer < 0){
+								newer = youtubeAddressLength-1;
+							}
+						
+					%>
+						<li>
+							<input type="radio" id="slide_<%=i%>" name="slideRadioGroup" class="state" checked="checked">
+							<div class="wrap">
+								<div class="slide">	
+									<iframe 
+										class="inneriframe"
+										src="<%=youtubeAddress[i]%>"
+										frameborder="0" 
+										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+										allowfullscreen>
+									</iframe>
+								</div>
+								<nav class="nav">
+									<label class="prev" for="slide_<%=newer%>">prev</label>
+									<label class="next" for="slide_<%=older%>">next</label>
+								</nav>
 							</div>
-							<nav class="nav">
-								<label class="prev" for="slide_3">prev</label>
-								<label class="next" for="slide_2">next</label>
-							</nav>
-						</div>
-					</li>
-					<li>
-						<input type="radio" id="slide_2" name="slideRadioGroup" class="state">
-						<div class="wrap">
-							<div class="slide">
-								<iframe 
-									class="inneriframe"
-									src="https://www.youtube.com/embed/nbk71vDbSFA"
-									frameborder="0" 
-									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-									allowfullscreen>
-								</iframe>
-							</div>
-							<nav class="nav">
-								<label class="prev" for="slide_1">prev</label>
-								<label class="next" for="slide_3">next</label>
-							</nav>
-						</div>
-					</li>	
-					<li>
-						<input type="radio" id="slide_3" name="slideRadioGroup" class="state">
-						<div class="wrap">
-							<div class="slide">
-								<iframe 
-									class="inneriframe"
-									src="https://www.youtube.com/embed/foRUbMTB0CY"
-									frameborder="0" 
-									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-									allowfullscreen>
-								</iframe>
-							</div>
-							<nav class="nav">
-								<label class="prev" for="slide_2">prev</label>
-								<label class="next" for="slide_1">next</label>
-							</nav>
-						</div>
-					</li>						
+						</li>
+					<%
+						}
+
+					%>							
 				</ul>
 			</div>
 			<div style="position:relative;height:20%;" align="right">
