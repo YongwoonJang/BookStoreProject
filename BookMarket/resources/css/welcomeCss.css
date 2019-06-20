@@ -2,8 +2,12 @@
 	height:5%;
 }
 .greeting{
+	background-color:black;
+	color:yellow;
 	font-size:3.5em;
-
+	font-style:italic;
+	font-weight:900;
+	text-shadow: 2px 2px #3C5201;
 }
 .inneriframe{
 	position:relative;

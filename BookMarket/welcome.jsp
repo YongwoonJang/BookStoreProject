@@ -14,21 +14,22 @@
 	
 	
 	<% 
-		String greeting = "공간";
+		String greeting = "Not norMAL JYU Project";
 		String tagline = "My week";
-		String[] youtubeAddress = new String[5];
+		String[] youtubeAddress = new String[6];
 
-		Array.set(youtubeAddress, 0, "https://www.youtube.com/embed/dC8W84c4Exk");
-		Array.set(youtubeAddress, 1, "https://www.youtube.com/embed/lLuk2OyFLRo");	
+		Array.set(youtubeAddress, 5, "https://www.youtube.com/embed/RJvY30axRzA");
+		Array.set(youtubeAddress, 4, "https://www.youtube.com/embed/dC8W84c4Exk");
+		Array.set(youtubeAddress, 3, "https://www.youtube.com/embed/lLuk2OyFLRo");	
 		Array.set(youtubeAddress, 2, "https://www.youtube.com/embed/Ccx9b_FHHK0");
-		Array.set(youtubeAddress, 3, "https://www.youtube.com/embed/nbk71vDbSFA");
-		Array.set(youtubeAddress, 4, "https://www.youtube.com/embed/foRUbMTB0CY");
+		Array.set(youtubeAddress, 1, "https://www.youtube.com/embed/nbk71vDbSFA");
+		Array.set(youtubeAddress, 0, "https://www.youtube.com/embed/foRUbMTB0CY");
 		//sorting
 	%>
 	
 	<div class = "container-fluid" style="padding-left:0px;padding-right:0px;" >
-		<div class = "jumbotron text-center greeting" style="padding-top:0px;padding-bottom:0px;" >
-			<p><%= greeting %>
+		<div class = "jumbotron text-center greeting" >
+			<span style="background-color:white;color:blue;">&nbsp;Not norMAL&nbsp;</span>&nbsp;JYU Project
 		</div>
 	</div>
 	<div class ="container-fluid navigator">	
@@ -37,14 +38,15 @@
 				<ul class="slider">	
 					<% 
 						int youtubeAddressLength = youtubeAddress.length;
+						
 						for(int i = 0; i<youtubeAddressLength; i++){
-							int older = i+1;
-							int newer = i-1;
-							if(older >= youtubeAddressLength){
-								older = 0;
+							int older = i-1;
+							int newer = i+1;
+							if(newer >= youtubeAddressLength){
+								newer = 0;
 							}
-							if(newer < 0){
-								newer = youtubeAddressLength-1;
+							if(older < 0){
+								older = youtubeAddressLength-1;
 							}
 						
 					%>
@@ -61,8 +63,8 @@
 									</iframe>
 								</div>
 								<nav class="nav">
-									<label class="prev" for="slide_<%=newer%>">prev</label>
-									<label class="next" for="slide_<%=older%>">next</label>
+									<label class="prev" for="slide_<%=newer%>">newer</label>
+									<label class="next" for="slide_<%=older%>">older</label>
 								</nav>
 							</div>
 						</li>
