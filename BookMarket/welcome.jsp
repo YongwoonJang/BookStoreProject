@@ -7,17 +7,14 @@
 <link rel = "stylesheet" href ="/BookMarket/resources/css/welcomeCss.css">
 <link rel = "stylesheet" media="(max-width:900px)" href="/BookMarket/resources/css/responsiveCss.css">
 <meta name = "viewport" content ="width=device-width, initial-scale=1">
-<title>Public Service Announcement</title>
+<title>용운의 즐거운 세상</title>
 </head>
-<body>
-	<%@ include file="menu.jsp" %>
-	
-	
+<body>	
 	<% 
-		String greeting = "Not norMAL JYU Project";
 		String tagline = "My week";
-		String[] youtubeAddress = new String[6];
-
+		String[] youtubeAddress = new String[7];
+		
+		Array.set(youtubeAddress, 6, "https://www.youtube.com/embed/A6VqtuCe0no");
 		Array.set(youtubeAddress, 5, "https://www.youtube.com/embed/RJvY30axRzA");
 		Array.set(youtubeAddress, 4, "https://www.youtube.com/embed/dC8W84c4Exk");
 		Array.set(youtubeAddress, 3, "https://www.youtube.com/embed/lLuk2OyFLRo");	
@@ -29,7 +26,8 @@
 	
 	<div class = "container-fluid" style="padding-left:0px;padding-right:0px;" >
 		<div class = "jumbotron text-center greeting" >
-			<span style="background-color:white;color:blue;">&nbsp;Not norMAL&nbsp;</span>&nbsp;JYU Project
+			J World<br>
+			<jsp:include page="./menu.jsp"/>
 		</div>
 	</div>
 	<div class ="container-fluid navigator">	
@@ -63,8 +61,8 @@
 									</iframe>
 								</div>
 								<nav class="nav">
-									<label class="prev" for="slide_<%=newer%>">newer</label>
-									<label class="next" for="slide_<%=older%>">older</label>
+									<label class="prev" for="slide_<%=newer%>">AFTER</label>
+									<label class="next" for="slide_<%=older%>">BEFORE</label>
 								</nav>
 							</div>
 						</li>
@@ -74,13 +72,13 @@
 					%>							
 				</ul>
 			</div>
-			<div style="position:relative;height:20%;" align="right">
-				<div class="footer">
-					<%@include file="footer.jsp" %>	
-				</div>
-			</div>
 		</div>
 	</div>	
+	<div style="position:relative;height:20%;" align="right">
+		<div class="footer">
+			<%@include file="footer.jsp" %>	
+		</div>
+	</div>
 </body>
 <script>
 	var slideIndex = 1;

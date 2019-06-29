@@ -1,65 +1,73 @@
+a{
+	color:white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+a:visited {color:white;} /* Visited link    */
+a:hover {color:black;}   /* Mouse over link */
+a:active {color:black;}	
 .banner{
 	height:5%;
 }
+.container-fluid{
+	height:18%;
+}
 .greeting{
-	background-color:black;
-	color:yellow;
-	font-size:1.5em;
-	font-style:italic;
+	border-radius:0px;
+	color:black;
+	font-size:2.0em;
 	font-weight:900;
-	padding-top:5px;
-	text-shadow: 1px 1px #3C5201;
-	vertical-align:middle;	
+	margin-bottom:0px;
 }
 .footer{
 	font-size:0.7em;
+	display:none;
 }
 .inneriframe{
 	position:relative;
 	margin:auto;
-	width:90%;
-	height:90%;
+	width:50%;
+	height:100%;
 
 }
 .jumbotron{
-	border-radius:0px;
-	height:6%;
+	background-color:white;
+}
+li{
+	list-style-type:none;
 }
 .nav{
 	display:none;
+}
+.navbar-nav{
+	color:white;
+	font-size:80%;
+ 	margin:0 auto;
 }
 .navigator{
 	margin: 0;
   	padding: 0;
  	height: 35%;
 	font: 80%/1.5 Arial, sans-serif;
-	background-color: #272822;
+	background-color:white;
 	overflow: hidden;
-
 }
 .prev,
 .next {
   position: absolute;
-  top: 0; right: 0;
+  top: 0; right: 10%;
   width: 10%; height: 100%;
   line-height: 200px;
   margin: 0 0 0 0;
   text-decoration: none;
   text-align: center;
-  background: #000000;
-  color: #404040;
   z-index: 2;
   cursor: pointer;
-  font-size: 10px;
-  color: white;
+  font-size: 60%;
   font-weight: bold;
-  box-shadow: 0 0 10px rgba(0,0,0,.5);
-  text-shadow: 0 0 1px #333;
-  opacity:0.5;
 }
 
 .prev {
-  left: 0;
+  left: 10%;
   right: auto;
 }
 
@@ -71,21 +79,24 @@
   text-align: center;
 }
 
+.slider{
+  height:100%;
+  width:100%;
+}
+
 .next:active,
 .prev:active {
   font-size: 26px;
   color: white;
 }
-.mainText{
-	font-size:1.0em;
-}
+
 .wrap{
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100%;
+  height: 70%;
   width: 100%;
   text-align: center;
   z-index: 1;
