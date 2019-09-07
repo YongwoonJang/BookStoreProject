@@ -20,6 +20,7 @@ import mvc.model.GalleryBoardDTO;
 
 public class GalleryBoardController extends HttpServlet {
 	
+	//2019-09-08 test snippets.
 	private static final long servialVersionUID = 1L;
 	static final int LISTCOUNT = 9;
 	
